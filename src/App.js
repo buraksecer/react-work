@@ -18,11 +18,6 @@ const BigGreenHeading = styled.h1`
 const App = () => {
 	return (
 		<>
-			<Provider store={store}>
-				<CounterProvider>
-					<CounterButton/>
-					<CounterButtonWithRedux/>
-
 					<BigGreenHeading>Server-Side Rendering Example</BigGreenHeading>
 					<ul>
 						<li>
@@ -46,10 +41,6 @@ const App = () => {
 							<Articles />
 						</Route>
 					</Switch>
-				</CounterProvider>
-
-			</Provider>
-
 		</>
 	);
 }
