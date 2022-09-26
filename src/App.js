@@ -6,6 +6,9 @@ import { About } from './pages/About';
 import { Articles } from './pages/Articles';
 import { CounterButton } from "./CounterButton";
 import {CounterProvider} from "./CounterProvider";
+import {Provider} from "react-redux";
+import {store} from "./redux/store"
+import {CounterButtonWithRedux} from "./CounterButtonWithRedux";
 
 const BigGreenHeading = styled.h1`
 	color: green;
@@ -15,33 +18,37 @@ const BigGreenHeading = styled.h1`
 const App = () => {
 	return (
 		<>
-			<CounterProvider>
-				<CounterButton/>
+			<Provider store={store}>
+				<CounterProvider>
+					<CounterButton/>
+					<CounterButtonWithRedux/>
 
-				<BigGreenHeading>Server-Side Rendering Example</BigGreenHeading>
-				<ul>
-					<li>
-						<Link to="/">Home</Link>
-					</li>
-					<li>
-						<Link to="/about">About</Link>
-					</li>
-					<li>
-						<Link to="/articles">Articles</Link>
-					</li>
-				</ul>
-				<Switch>
-					<Route path="/" exact>
-						<Home />
-					</Route>
-					<Route path="/about">
-						<About />
-					</Route>
-					<Route path="/articles">
-						<Articles />
-					</Route>
-				</Switch>
-			</CounterProvider>
+					<BigGreenHeading>Server-Side Rendering Example</BigGreenHeading>
+					<ul>
+						<li>
+							<Link to="/">Home</Link>
+						</li>
+						<li>
+							<Link to="/about">About</Link>
+						</li>
+						<li>
+							<Link to="/articles">Articles</Link>
+						</li>
+					</ul>
+					<Switch>
+						<Route path="/" exact>
+							<Home />
+						</Route>
+						<Route path="/about">
+							<About />
+						</Route>
+						<Route path="/articles">
+							<Articles />
+						</Route>
+					</Switch>
+				</CounterProvider>
+
+			</Provider>
 
 		</>
 	);
